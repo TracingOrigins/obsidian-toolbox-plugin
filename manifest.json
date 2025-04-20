@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-toolbox-plugin",
 	"name": "Obsidian Toolbox Plugin",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"minAppVersion": "0.12.0",
 	"description": "一个强大的 Obsidian 工具箱插件，提供自动添加时间戳、标签页链接复制等实用功能。支持自定义工具开发，采用模块化设计，可以按需启用或禁用功能。",
 	"author": "TracingOrigins",

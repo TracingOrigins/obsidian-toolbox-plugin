@@ -8,6 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm install && npm run docs:build  # 安装依赖并构建文档
+      - name: Create CNAME file
+        # 手动生成 CNAME 文件，确保清空旧文件后生成
+        run: echo "otp.tracingorigins.cn" > docs/.vitepress/dist/CNAME
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -3,12 +3,12 @@ import { useData } from 'vitepress'
 import { useRoute } from 'vitepress'
 
 export default defineConfig({
-  base: '/obsidian-toolbox-plugin/',
+  base: '/',
   title: "Toolbox Docs",
   description: "功能、用法、配置",
   lang: 'en-US',
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/obsidian-toolbox-plugin/favicon.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
     ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
     ['meta', { name: 'theme-color', content: '#ffffff' }]
