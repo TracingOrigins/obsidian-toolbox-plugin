@@ -1,94 +1,194 @@
-# Obsidian Sample Plugin
+# Obsidian Toolbox Plugin
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+一个强大的 Obsidian 工具箱插件，提供自动添加时间戳、复制标签页链接、复制文件路径等实用功能，支持自定义工具开发，让您的笔记体验更加高效。
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+## 功能特点
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+- 自动添加时间戳：快速在笔记中插入创建时间和修改时间
+- 复制标签页链接：方便地复制当前标签页的链接
+- 复制文件路径：支持复制文件的绝对路径、相对路径和文件夹层级结构
+- 内联代码复制：快速复制笔记中的内联代码片段
+- 文档属性排序：自动对文档的 front matter 属性进行排序
+- 用户友好：简洁直观的界面设计，统一的图标系统
+- 工具状态持久化：自动保存和恢复工具状态
 
-## First time developing plugins?
+## 图标系统
 
-Quick starting guide for new plugin devs:
+插件使用了一套统一的图标系统，所有图标都使用 Obsidian 的主题色（`var(--interactive-accent)`），确保与 Obsidian 界面风格保持一致。图标包括：
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+- 折叠/展开图标：用于可折叠内容区域
+- 返回图标：用于返回或后退操作
+- 排序图标：用于排序功能
+- 视图图标：用于显示模式切换
+- 搜索图标：用于搜索功能
+- 工具图标：用于功能集合
+- 设置图标：用于配置选项
+- 时间图标：用于时间相关功能
+- 复制图标：用于复制操作
+- 模板图标：用于预设功能
 
-## Releasing new releases
+## 工具说明
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+### 1. 自动时间戳工具
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+自动为文档添加创建时间和修改时间的时间戳。
 
-## Adding your plugin to the community plugin list
+#### 主要功能
+- 自动添加创建时间
+- 自动添加修改时间
+- 可自定义时间格式
+- 可设置修改时间更新间隔
+- 支持忽略特定文件夹、文件和标签
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+#### 使用方法
+1. 在设置中启用"自动时间戳"工具
+2. 配置时间格式和更新间隔
+3. 配置需要忽略的文件夹、文件和标签
 
-## How to use
+#### 时间格式设置
+支持使用 [Moment.js](https://momentjs.com/docs/#/displaying/format/) 格式字符串，例如：
+- `YYYY-MM-DD HH:mm:ss`（默认）
+- `YYYY/MM/DD HH:mm`
+- `MM-DD HH:mm`
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+#### 忽略规则设置
+1. 忽略文件夹
+   - 支持多行输入，每行一个文件夹
+   - 支持通配符（* 和 ?）
+   - 示例：
+     ```
+     .templates
+     attachments/*
+     daily/*
+     ```
 
-## Manually installing the plugin
+2. 忽略文件
+   - 支持多行输入，每行一个文件
+   - 支持通配符（* 和 ?）
+   - 示例：
+     ```
+     *.png
+     *.jpg
+     !important.md
+     ```
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+3. 忽略标签
+   - 支持多行输入，每行一个标签
+   - 支持通配符（* 和 ?）
+   - 支持文档内容和文档属性中的标签
+   - 示例：
+     ```
+     #draft
+     #temp/*
+     #review
+     ```
 
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint .\src\`
+#### 注意事项
+- 忽略规则会同时应用于文档内容和文档属性中的标签
+- 标签匹配支持嵌套标签（如 `#tag/subtag`）
+- 忽略规则中的标签可以带或不带 `#` 符号
+- 修改时间会根据设置的间隔自动更新，避免频繁更新
 
-## Funding URL
+### 2. 复制标签页链接工具
 
-You can include funding URLs where people who use your plugin can financially support it.
+方便地复制当前标签页的链接。
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+#### 主要功能
+- 复制当前标签页的链接
+- 支持双击标签页快速复制
+- 对于 Markdown 文档：自动转换为 Wiki 格式的链接
+- 对于 Web Viewer 页面：自动转换为 Markdown 格式的链接
 
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
-```
+#### 使用方法
+1. 在设置中启用"复制标签页链接"工具
+2. 启用双击复制功能
+3. 在 Markdown 文档或  Web Viewer 页面中，双击标签页快速复制链接
 
-If you have multiple URLs, you can also do:
+### 3. 复制文件路径工具
 
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
+方便地复制文件或文件夹的路径。
 
-## API Documentation
+#### 主要功能
+- 支持复制文件的绝对路径
+- 支持复制文件的相对路径
+- 支持复制文件夹的层级结构
+- 支持多文件选择
 
-See https://github.com/obsidianmd/obsidian-api
+#### 使用方法
+1. 在文件浏览器中右键点击文件或文件夹
+2. 选择以下选项之一：
+   - 复制绝对路径：复制文件的完整路径
+   - 复制相对路径：复制相对于 vault 根目录的路径
+   - 复制文件夹层级：复制文件夹的层级结构（仅适用于文件夹）
+
+### 4. 内联代码复制工具
+
+快速复制笔记中的内联代码片段。
+
+#### 主要功能
+- 支持点击复制内联代码
+- 支持自定义复制提示
+- 支持自定义复制成功提示
+
+#### 使用方法
+1. 在设置中启用"内联代码复制"工具
+2. 在笔记中点击内联代码即可复制
+3. 可选：配置复制提示和成功提示
+
+### 5. 文档属性排序工具
+
+自动对文档的 front matter 属性进行排序，保持文档结构的一致性。
+
+#### 主要功能
+- 支持自定义属性排序规则
+- 支持忽略特定属性
+- 支持忽略特定文件夹和文件
+- 支持手动触发排序
+
+#### 使用方法
+1. 在设置中启用"文档属性排序"工具
+2. 配置属性排序规则和忽略规则
+3. 选择自动排序或手动触发排序
+
+#### 排序规则设置
+1. 属性顺序
+   - 支持自定义属性排序顺序
+   - 支持多行输入，每行一个属性名
+   - 示例：
+     ```
+     title
+     date
+     tags
+     author
+     ```
+
+2. 忽略规则
+   - 忽略文件夹：支持多行输入，每行一个文件夹路径
+   - 忽略文件：支持多行输入，每行一个文件路径
+   - 忽略属性：支持多行输入，每行一个属性名
+   - 支持通配符（* 和 ?）
+
+#### 注意事项
+- 排序规则会按照配置的顺序依次应用
+- 未在排序规则中指定的属性会被放在最后
+- 忽略规则优先级高于排序规则
+- 手动触发排序不会影响被忽略的文件
+
+## 配置选项
+
+- 工具管理：启用/禁用特定工具
+- 自动时间戳
+  - 时间戳格式：自定义时间戳的日期格式
+  - 修改时间间隔：自定义修改时间的更新间隔
+  - 忽略规则：配置需要忽略的文件夹、文件和标签
+- 复制文件路径
+  - 显示绝对路径选项：在右键菜单中显示复制绝对路径选项
+  - 显示相对路径选项：在右键菜单中显示复制相对路径选项
+  - 显示文件夹层级选项：在右键菜单中显示复制文件夹层级选项
+- 内联代码复制
+  - 复制提示：自定义复制时的提示文本
+  - 成功提示：自定义复制成功后的提示文本
+- 文档属性排序
+  - 属性顺序：自定义属性的排序顺序
+  - 忽略规则：配置需要忽略的文件夹、文件和属性
+  - 自动排序：是否在保存文件时自动排序

@@ -1,11 +1,43 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "obsidian-toolbox-plugin",
+	"name": "Obsidian Toolbox Plugin",
 	"version": "1.0.0",
-	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
-	"isDesktopOnly": false
+	"minAppVersion": "0.12.0",
+	"description": "一个强大的 Obsidian 工具箱插件，提供自动添加时间戳、标签页链接复制等实用功能。支持自定义工具开发，采用模块化设计，可以按需启用或禁用功能。",
+	"author": "TracingOrigins",
+	"authorUrl": "https://github.com/TracingOrigins",
+	"isDesktopOnly": false,
+	"fundingUrl": {
+		"GitHub": "https://github.com/sponsors/TracingOrigins",
+		"爱发电": "https://afdian.net/a/TracingOrigins"
+	},
+	"repo": "TracingOrigins/obsidian-toolbox-plugin",
+	"branch": "main",
+	"isBeta": false,
+	"tags": [
+		"toolbox",
+		"productivity",
+		"utility",
+		"tools",
+		"automation"
+	],
+	"categories": [
+		"productivity",
+		"utility"
+	],
+	"keywords": [
+		"toolbox",
+		"tools",
+		"automation",
+		"productivity",
+		"utility"
+	],
+	"license": "MIT",
+	"dependencies": [],
+	"devDependencies": [],
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"version": "node version-bump.mjs && git add manifest.json versions.json"
+	}
 }

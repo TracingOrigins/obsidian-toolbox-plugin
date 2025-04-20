@@ -1,8 +1,1264 @@
-/*
+/* 设置页面标题 */
+.toolbox .otp-title-bar {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	margin-bottom: 1em;
+}
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+.toolbox .otp-settings-title {
+	margin: 0;
+	padding: 0;
+	font-weight: 600;
+	color: var(--text-normal);
+	flex: 1;
+}
 
-If your plugin does not need CSS, delete this file.
+.toolbox h1.otp-settings-title {
+	margin: 0;
+}
 
-*/
+/* 返回按钮样式 */
+.toolbox .otp-back-button-container {
+	display: flex;
+	align-items: center;
+}
+
+.toolbox .otp-back-button {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0.5em 1em;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	color: var(--text-normal);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.toolbox .otp-back-button:hover {
+	background-color: var(--background-modifier-hover);
+	border-color: var(--interactive-accent);
+}
+
+.toolbox .otp-back-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.toolbox .otp-back-icon svg {
+	width: 16px;
+	height: 16px;
+}
+
+.toolbox .otp-back-text {
+	font-size: 14px;
+}
+
+/* 欢迎信息区域 */
+.toolbox .otp-toolbox-header {
+	margin: 1.5em 0;
+	background-color: var(--background-secondary);
+	border-radius: 16px;
+	overflow: hidden;
+	min-height: 4em;
+	display: flex;
+	align-items: center;
+	border: 1px solid transparent;
+	transition: border-color 0.2s ease;
+}
+
+.toolbox .otp-toolbox-header:hover {
+	border-color: var(--interactive-accent);
+}
+
+.toolbox .otp-header-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1em;
+	padding: 0 15px;
+	width: 100%;
+}
+
+.toolbox .otp-welcome-container {
+	flex: 1;
+	padding: 0.5em 1em;
+	background-color: var(--background-primary);
+	border-radius: 4px;
+}
+
+.toolbox .otp-welcome-text {
+	margin: 0;
+	color: var(--text-normal);
+}
+
+.toolbox .otp-welcome-text a {
+	color: var(--text-accent);
+	text-decoration: none;
+}
+
+.toolbox .otp-welcome-text a:hover {
+	text-decoration: underline;
+}
+
+.toolbox .otp-version-container {
+	padding: 0.5em 1em;
+	background-color: var(--background-primary);
+	border-radius: 12px;
+	white-space: nowrap;
+	height: fit-content;
+}
+
+.toolbox .otp-version-text {
+	margin: 0;
+	font-size: 0.9em;
+	color: var(--text-muted);
+}
+
+/* 设置菜单样式 */
+.toolbox .otp-toolbox-menu {
+	margin-bottom: 1.5em;
+	background-color: var(--background-secondary);
+	border-radius: 16px;
+	overflow: hidden;
+	border: 1px solid transparent;
+	transition: border-color 0.2s ease;
+}
+
+.toolbox .otp-toolbox-menu:hover {
+	border-color: var(--interactive-accent);
+}
+
+.toolbox .otp-menu-header {
+	padding: 1em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+.toolbox .otp-menu-header:hover {
+	background-color: var(--background-modifier-hover);
+}
+
+.toolbox .otp-dropdown-content {
+	padding: 1em;
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+.toolbox .otp-dropdown-content.hidden {
+	display: none;
+}
+
+.toolbox .otp-settings-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 1em;
+	/*margin-top: 1em;*/
+}
+
+@media (max-width: 768px) {
+	.toolbox .otp-settings-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* 通用卡片样式 */
+.toolbox .otp-card {
+	padding: 1em;
+	background-color: var(--background-primary);
+	border-radius: 16px;
+	border: 1px solid transparent;
+	transition: border-color 0.2s ease;
+}
+
+.toolbox .otp-card:hover {
+	border-color: var(--interactive-accent);
+}
+
+/* 常规选项子项样式 */
+.toolbox .otp-setting-container.otp-card {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 1.5em;
+	background-color: var(--background-primary);
+	border-radius: 16px;
+	border: 1px solid transparent;
+	transition: border-color 0.2s ease;
+	/*margin-bottom: 1em;*/
+}
+
+.toolbox .otp-setting-container.otp-card:hover {
+	border-color: var(--interactive-accent);
+
+}
+
+.toolbox .otp-setting-container .setting-item {
+	padding: 0;
+	/* border-top: none !important; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.toolbox .otp-setting-container .setting-item-name {
+	color: var(--text-normal);
+	margin: 0;
+	line-height: 1.2;
+	text-align: left;
+	font-size: 1.26em;
+	font-weight: 600;
+}
+
+.toolbox .otp-setting-container .setting-item-description {
+	display: none;
+}
+
+.toolbox .otp-setting-container .dropdown {
+	width: 175px;
+	min-width: 175px;
+}
+
+.toolbox .otp-setting-container .setting-item-icon {
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-muted);
+	flex-shrink: 0;
+}
+
+.toolbox .otp-setting-container .setting-item-icon svg {
+	width: 20px;
+	height: 20px;
+}
+
+.toolbox .otp-setting-container .otp-setting-description {
+	margin-top: 0.5em;
+	color: var(--text-muted);
+	font-size: 0.9em;
+	line-height: 1.4;
+	display: none;
+}
+
+.toolbox .otp-setting-container .otp-setting-description p {
+	margin: 0;
+}
+
+/* 常规选项卡片头部样式 */
+.toolbox .otp-setting-container .otp-tool-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 32px;
+	/*margin-bottom: 0.5em;*/
+}
+
+.toolbox .otp-setting-container .otp-tool-left {
+	display: flex;
+	align-items: center;
+	gap: 0.75em;
+	flex: 1;
+}
+
+.toolbox .otp-setting-container .otp-tool-icon {
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-muted);
+	flex-shrink: 0;
+}
+
+.toolbox .otp-setting-container .otp-tool-icon svg {
+	width: 20px;
+	height: 20px;
+}
+
+.toolbox .otp-setting-container .otp-tool-info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+}
+
+.toolbox .otp-setting-container .otp-tool-title {
+	margin: 0;
+	font-size: 1.1em;
+	font-weight: 600;
+	color: var(--text-normal);
+	line-height: 1.2;
+}
+
+.toolbox .otp-setting-container .otp-tool-right {
+	display: flex;
+	align-items: center;
+	gap: 0.75em;
+	margin-left: 1em;
+}
+
+.toolbox .otp-setting-container .text-input {
+	width: 175px;
+	min-width: 175px;
+	padding: 4px 8px;
+	border-radius: 16px;
+	border: 1px solid var(--background-modifier-border);
+	background-color: var(--background-primary);
+	color: var(--text-normal);
+}
+
+.toolbox .otp-setting-container .text-input:focus {
+	border-color: var(--interactive-accent);
+	box-shadow: unset;
+}
+
+.toolbox .otp-setting-container h4 {
+	margin: 0 0 0.5em 0;
+	color: var(--text-normal);
+}
+
+/* 工具列表区域 */
+.toolbox .otp-tools-content {
+	padding: 1em;
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+.toolbox .otp-tools-content.hidden {
+	display: none;
+}
+
+.toolbox .otp-tools-container {
+	/* margin-top: 1em; */
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.toolbox .otp-tools-container.list {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.toolbox .otp-tools-container.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 1em;
+}
+
+/* 工具列表项样式 */
+.toolbox .otp-tool-item {
+	/* margin-bottom: 1em; */
+	padding: 1.5em;
+}
+
+.toolbox .otp-tool-item .otp-tool-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 32px;
+	margin-bottom: 0.5em;
+}
+
+.toolbox .otp-tool-item .otp-tool-left {
+	display: flex;
+	align-items: center;
+	gap: 0.75em;
+	flex: 1;
+}
+
+.toolbox .otp-tool-item .otp-tool-icon {
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-muted);
+	flex-shrink: 0;
+}
+
+.toolbox .otp-tool-item .otp-tool-icon svg {
+	width: 20px;
+	height: 20px;
+}
+
+.toolbox .otp-tool-item .otp-tool-info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+}
+
+.toolbox .otp-tool-item .otp-tool-title {
+	margin: 0;
+	font-size: 1.1em;
+	font-weight: 600;
+	color: var(--text-normal);
+	line-height: 1.2;
+}
+
+.toolbox .otp-tool-item .otp-tool-right {
+	display: flex;
+	align-items: center;
+	gap: 0.75em;
+	margin-left: 1em;
+}
+
+.toolbox .otp-tool-item .otp-tool-toggle {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.toolbox .otp-tool-item .otp-toggle {
+	width: 2.5em;
+	height: 1.25em;
+	background-color: var(--background-modifier-border);
+	border-radius: 1em;
+	position: relative;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.toolbox .otp-tool-item .otp-toggle.otp-toggle-enabled {
+	background-color: var(--interactive-accent);
+}
+
+.toolbox .otp-tool-item .otp-toggle::after {
+	content: '';
+	position: absolute;
+	top: 0.125em;
+	left: 0.125em;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	background-color: var(--background-primary);
+	transition: transform 0.2s ease;
+}
+
+.toolbox .otp-tool-item .otp-toggle.otp-toggle-enabled::after {
+	transform: translateX(1.25em);
+}
+
+.toolbox .otp-tool-item .otp-tool-settings {
+	display: flex;
+	align-items: center;
+}
+
+.toolbox .otp-tool-item .otp-settings-button {
+	padding: 0.5em;
+	border: none;
+	background: none;
+	color: var(--text-muted);
+	cursor: pointer;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.toolbox .otp-tool-item .otp-settings-button:hover {
+	background-color: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.toolbox .otp-tool-item .otp-settings-button svg {
+	width: 16px;
+	height: 16px;
+}
+
+.toolbox .otp-tool-item .otp-tool-description-container {
+	margin-top: 0.5em;
+}
+
+.toolbox .otp-tool-item .otp-tool-description {
+	margin: 0;
+	color: var(--text-muted);
+	font-size: 0.9em;
+	line-height: 1.4;
+}
+
+/* 设置按钮样式 */
+.toolbox .otp-settings-button {
+	background: none !important;
+	cursor: pointer;
+	color: var(--text-muted);
+	transition: all 0.2s ease;
+}
+
+.toolbox .otp-settings-button svg.svg-icon {
+	width: 20px;
+	height: 20px;
+}
+
+.toolbox .otp-settings-button .setting-item-control {
+	display: flex;
+	align-items: center;
+	width: 16px;
+	height: 16px;
+}
+
+.toolbox .otp-settings-button:hover {
+	color: var(--text-normal);
+	background-color: var(--background-modifier-hover);
+}
+
+.toolbox .otp-settings-button.is-active {
+	color: var(--text-accent);
+	background-color: var(--background-modifier-hover);
+}
+
+/* 设置项样式 */
+.toolbox .setting-item {
+	padding: 0.5em 0;
+	/* border-top: none !important; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.toolbox .setting-item-no-border {
+	border: none !important;
+}
+
+.toolbox .setting-item-name {
+	color: var(--text-normal);
+}
+
+.toolbox .setting-item-description {
+	color: var(--text-muted);
+	font-size: 0.9em;
+}
+
+/* 下拉菜单样式 */
+.toolbox .dropdown {
+	width: 200px;
+	min-width: 200px;
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 12px;
+	color: var(--text-normal);
+	box-shadow: unset;
+}
+
+.toolbox .dropdown:focus {
+	/* outline: none; */
+	border-color: var(--interactive-accent);
+	box-shadow: unset;
+}
+
+/* 开关样式 */
+.toolbox .toggle-container {
+	display: flex;
+	align-items: center;
+}
+
+/* 工具图标样式 */
+.toolbox .otp-tool-icon.auto-timestamp {
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="blueviolet"><path d="M12 7v5h5v2h-7V7h2zm1-5a9 9 0 100 18 9 9 0 000-18zm0 16a7 7 0 110-14 7 7 0 010 14z"/></svg>') no-repeat center center;
+	background-size: contain;
+}
+
+.toolbox .otp-tool-icon.tab-copy {
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="blueviolet"><path d="M20 5H8a2 2 0 00-2 2v10H4a2 2 0 00-2 2v2h16v-2a2 2 0 00-2-2h-2V7a2 2 0 012-2zM8 17h8v2H8v-2zM18 5v10H8V7h10z"/></svg>') no-repeat center center;
+	background-size: contain;
+}
+
+.toolbox .otp-tool-icon.tool-test {
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="blueviolet"><path d="M20 5H8a2 2 0 00-2 2v10H4a2 2 0 00-2 2v2h16v-2a2 2 0 00-2-2h-2V7a2 2 0 012-2zM8 17h8v2H8v-2zM18 5v10H8V7h10z"/></svg>') no-repeat center center;
+	background-size: contain;
+}
+
+/* 暗色主题适配 */
+.theme-dark .toolbox .otp-header-content {
+	background-color: var(--background-secondary);
+}
+
+.theme-dark .toolbox .otp-welcome-container {
+	background-color: var(--background-primary);
+}
+
+.theme-dark .toolbox .otp-version-container {
+	background-color: var(--background-primary);
+}
+
+.theme-dark .toolbox .otp-toolbox-header,
+.theme-dark .toolbox .otp-toolbox-menu,
+.theme-dark .toolbox .otp-tool-item {
+	background-color: var(--background-secondary);
+}
+
+.theme-dark .toolbox .otp-setting-container,
+.theme-dark .toolbox .otp-tool-config {
+	background-color: var(--background-primary);
+}
+
+.theme-dark .toolbox .otp-settings-button:hover {
+	background-color: var(--background-modifier-hover);
+}
+
+.theme-dark .toolbox .otp-settings-button.is-active {
+	background-color: var(--background-modifier-active);
+}
+
+.theme-dark .toolbox .otp-tools-container {
+	background-color: var(--background-secondary);
+}
+
+.theme-dark .toolbox .otp-tool-item {
+	background-color: var(--background-primary);
+	border: 1px solid transparent;
+	transition: border-color 0.2s ease;
+}
+
+.theme-dark .toolbox .otp-tool-item:hover {
+	border-color: var(--interactive-accent);
+}
+
+.theme-dark .toolbox .otp-tool-config {
+	background-color: var(--background-secondary);
+}
+
+/* 工具设置模态框样式 */
+.toolbox .otp-tool-settings-modal {
+	padding: 1em;
+}
+
+.toolbox .otp-modal-header {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	margin-bottom: 1.5em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.toolbox .otp-modal-back-button {
+	padding: 0.5em;
+	border: none;
+	background: none;
+	color: var(--text-muted);
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+.toolbox .otp-modal-back-button:hover {
+	background-color: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.toolbox .otp-modal-title {
+	margin: 0;
+	color: var(--text-normal);
+}
+
+.toolbox .otp-tool-settings-modal .otp-modal-title {
+	margin: 0;
+	color: var(--text-normal);
+}
+
+.toolbox .otp-tool-settings-modal .setting-item {
+	padding: 1em;
+	background-color: var(--background-secondary);
+	border-radius: 4px;
+	margin-bottom: 0.5em;
+}
+
+.toolbox .otp-tool-settings-modal .setting-item-name {
+	font-size: 1.1em;
+	margin-bottom: 0.25em;
+}
+
+.toolbox .otp-tool-settings-modal .setting-item-description {
+	margin-bottom: 0.5em;
+}
+
+.toolbox .otp-tool-settings-modal .dropdown,
+.toolbox .otp-tool-settings-modal .text-input {
+	width: 100%;
+	padding: 0.5em;
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	color: var(--text-normal);
+}
+
+.toolbox .otp-tool-settings-modal .toggle-container {
+	margin-top: 0.5em;
+}
+
+.toolbox .otp-tool-settings-modal .toggle-container .toggle {
+	position: relative;
+	width: 2.5em;
+	height: 1.25em;
+	border-radius: 1.25em;
+	background-color: var(--background-modifier-border);
+	transition: background-color 0.3s ease;
+}
+
+.toolbox .otp-tool-settings-modal .toggle-container .toggle.is-enabled {
+	background-color: var(--interactive-accent);
+}
+
+.toolbox .otp-tool-settings-modal .toggle-container .toggle::after {
+	content: '';
+	position: absolute;
+	top: 0.125em;
+	left: 0.125em;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	background-color: var(--background-primary);
+	transition: transform 0.3s ease;
+}
+
+.toolbox .otp-tool-settings-modal .toggle-container .toggle.is-enabled::after {
+	transform: translateX(1.25em);
+}
+
+/* 动画效果 */
+.toolbox .otp-dropdown-content {
+	transition: all 0.3s ease;
+}
+
+.toolbox .otp-settings-button {
+	transition: all 0.2s ease;
+}
+
+.toolbox .otp-tools-content {
+	transition: all 0.3s ease;
+}
+
+.toolbox .otp-tool-config {
+	transition: all 0.3s ease;
+}
+
+/* 工具设置页面 */
+.toolbox .otp-tool-settings {
+	/* margin-top: 1em; */
+	/* padding: 1em; */
+	background-color: var(--background-primary);
+	border-radius: 4px;
+}
+
+.toolbox .otp-tool-settings .setting-item {
+	padding: 0.5em 0;
+	/* border-top: none !important; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.toolbox .otp-tool-settings .setting-item-name {
+	color: var(--text-normal);
+	margin-right: 1em;
+}
+
+.toolbox .otp-tool-settings .setting-item-description {
+	color: var(--text-muted);
+	font-size: 0.9em;
+}
+
+/* 搜索容器样式 */
+.toolbox .otp-search-container {
+	margin-top: 0;
+	grid-column: 1 / -1;
+}
+
+.toolbox .otp-search-container .setting-item {
+	padding: 0;
+	/* border-top: none !important; */
+}
+
+.toolbox .otp-search-container .setting-item-control {
+	flex-grow: 1;
+}
+
+.toolbox .otp-search-container input {
+	width: 100%;
+	padding: 8px 12px;
+	border-radius: 12px;
+	border: 1px solid var(--background-modifier-border);
+	background-color: var(--background-primary);
+	color: var(--text-normal);
+	font-size: 14px;
+}
+
+.toolbox .otp-search-container input:focus {
+	border-color: var(--interactive-accent);
+	box-shadow: unset;
+}
+
+/* 无搜索结果样式 */
+.otp-no-results {
+	padding: 20px;
+	text-align: center;
+	color: var(--text-muted);
+	font-style: italic;
+}
+
+/* 菜单标题容器样式 */
+.toolbox .otp-menu-header-content {
+	display: flex;
+	align-items: center;
+	flex: 1;
+}
+
+.toolbox .otp-menu-title-container {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.toolbox .otp-menu-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	color: var(--text-muted);
+}
+
+.toolbox .otp-menu-icon svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* 设置项图标样式 */
+.toolbox .setting-item.with-icon {
+	position: relative;
+	padding-left: 28px;
+	display: flex;
+	align-items: center;
+}
+
+.toolbox .setting-item.with-icon .setting-item-info {
+	margin-inline-end: unset !important;
+}
+
+.toolbox .setting-item.with-icon .setting-item-name {
+	display: flex;
+	align-items: center;
+	flex: 1;
+	position: relative;
+	padding-left: 6px;
+}
+
+.toolbox .setting-item.with-icon .setting-item-icon {
+	position: absolute;
+	left: -20px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 16px;
+	height: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-muted);
+}
+
+.toolbox .setting-item.with-icon .setting-item-icon svg {
+	width: 16px;
+	height: 16px;
+	stroke: currentColor;
+}
+
+.toolbox .setting-item.with-icon .setting-item-name h4 {
+	margin: 0;
+	line-height: 1.2;
+	text-align: left;
+}
+
+.toolbox .setting-item.with-icon .setting-item-name p {
+	margin: 0;
+	line-height: 1.2;
+	text-align: left;
+}
+
+.toolbox .setting-item.with-icon .setting-item-control {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+}
+
+/* 工具列表中的图标样式 */
+.otp-tool-item {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.otp-tool-item .otp-tool-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 32px;
+}
+
+.otp-tool-item .otp-tool-left {
+	position: relative;
+	/* padding-left: 28px; */
+	display: flex;
+	/* align-items: flex-start; */
+	flex: 1;
+}
+
+.otp-tool-item .setting-item-icon {
+	position: absolute;
+	left: 8px;
+	top: 4px;
+	width: 16px;
+	height: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-muted);
+}
+
+.otp-tool-item .setting-item-icon svg {
+	width: 16px;
+	height: 16px;
+	stroke: currentColor;
+}
+
+.otp-tool-item .otp-tool-info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.otp-tool-item .otp-tool-title {
+	margin: 0;
+	line-height: 1.2;
+	/* padding-left: 6px; */
+}
+
+.otp-tool-item .otp-tool-description {
+	margin: 0;
+	line-height: 1.2;
+	color: var(--text-muted);
+	/* display: none; */
+}
+
+.otp-tool-item .otp-tool-right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-left: auto;
+}
+
+.otp-tool-item .otp-tool-info h4 {
+	margin: 0;
+	text-align: left;
+}
+
+.otp-tool-item .otp-tool-info p {
+	margin: 0;
+	text-align: left;
+}
+
+/* 工具描述样式 */
+.otp-tool-item .otp-tool-description-container {
+	/* margin-top: 4px; */
+	color: var(--text-muted);
+	line-height: 1.2;
+	text-align: left;
+	/* padding-left: 8px; */
+}
+
+/* 常规选项描述信息样式 */
+/* .toolbox .otp-setting-description {
+	margin-top: 0.5em;
+	padding: 0.5em;
+	border-radius: 4px; */
+/* } */
+
+.toolbox .otp-setting-description p {
+	margin: 0;
+	color: var(--text-muted);
+	font-size: 0.9em;
+	line-height: 1.4;
+}
+
+/* 调整快速搜索容器的上边距 */
+.toolbox .otp-setting-container.otp-search-container {
+	margin-top: 0;
+}
+
+/* 工具设置标签页样式 */
+.toolbox .otp-tool-settings-tab {
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow-y: auto;
+}
+
+.toolbox .otp-tool-settings-tab .otp-modal-header {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	margin-bottom: 1.5em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.toolbox .otp-tool-settings-tab .otp-modal-title {
+	margin: 0;
+	color: var(--text-normal);
+	font-size: 1.5em;
+	font-weight: 600;
+}
+
+.toolbox .otp-tool-settings-tab .setting-item {
+	padding: 1em;
+	background-color: var(--background-secondary);
+	border-radius: 4px;
+	margin-bottom: 0.5em;
+	display: flex;
+	flex-direction: column;
+}
+
+.toolbox .otp-tool-settings-tab .setting-item-name {
+	font-size: 1.1em;
+	margin-bottom: 0.25em;
+	font-weight: 600;
+}
+
+.toolbox .otp-tool-settings-tab .setting-item-description {
+	margin-bottom: 0.5em;
+	color: var(--text-muted);
+}
+
+.toolbox .otp-tool-settings-tab .dropdown,
+.toolbox .otp-tool-settings-tab .text-input {
+	width: 100%;
+	padding: 0.5em;
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	color: var(--text-normal);
+}
+
+.toolbox .otp-tool-settings-tab .toggle-container {
+	margin-top: 0.5em;
+	display: flex;
+	align-items: center;
+}
+
+.toolbox .otp-tool-settings-tab .toggle-container .toggle {
+	position: relative;
+	width: 2.5em;
+	height: 1.25em;
+	border-radius: 1.25em;
+	background-color: var(--background-modifier-border);
+	transition: background-color 0.3s ease;
+}
+
+.toolbox .otp-tool-settings-tab .toggle-container .toggle.is-enabled {
+	background-color: var(--interactive-accent);
+}
+
+.toolbox .otp-tool-settings-tab .toggle-container .toggle::after {
+	content: '';
+	position: absolute;
+	top: 0.125em;
+	left: 0.125em;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	background-color: var(--background-primary);
+	transition: transform 0.3s ease;
+}
+
+.toolbox .otp-tool-settings-tab .toggle-container .toggle.is-enabled::after {
+	transform: translateX(1.25em);
+}
+
+/* 确保标签页内容可见 */
+.toolbox .otp-tool-settings-tab .setting-item-control {
+	display: flex;
+	align-items: center;
+	margin-top: 0.5em;
+}
+
+.toolbox .otp-tool-settings-tab .setting-item-control .dropdown,
+.toolbox .otp-tool-settings-tab .setting-item-control .text-input {
+	width: 100%;
+}
+
+.toolbox .otp-tool-settings-tab .setting-item-control .toggle-container {
+	margin-top: 0;
+}
+
+.tool-settings-back-button {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px;
+	cursor: pointer;
+	color: var(--text-muted);
+	transition: color 0.2s ease;
+}
+
+.tool-settings-back-button:hover {
+	color: var(--text-normal);
+}
+
+.tool-settings-back-button svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* 工具测试按钮样式 */
+.otp-test-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: var(--background-primary)!important;
+    color: var(--text-normal);
+    border: 1px solid var(--background-modifier-border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: none!important;
+}
+
+.otp-test-button:active,
+.otp-test-button:focus-visible {
+    border-color: var(--interactive-accent);
+    background-color: var(--background-primary)!important;
+    transform: translateY(1px);
+    box-shadow: none!important;
+}
+
+.otp-test-button .otp-button-icon,
+.otp-test-button .otp-button-icon svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+.otp-test-button .otp-button-icon svg {
+    stroke: var(--text-normal);
+}
+
+.otp-test-button .otp-button-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-normal);
+}
+
+/* 工具测试结果样式 */
+.otp-test-report {
+    margin: 0;
+    padding: 16px;
+    background-color: var(--background-secondary);
+    border-radius: 4px;
+    font-family: var(--font-monospace);
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+/* 子设置在工具禁用时的样式 */
+.disabled-toggle,
+.disabled-input,
+.disabled-dropdown,
+.disabled-slider,
+.disabled-textarea {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.disabled-toggle .checkbox-container,
+.disabled-dropdown,
+.disabled-slider,
+.disabled-textarea {
+    background-color: var(--background-modifier-border);
+}
+
+.disabled-toggle + .setting-item-description,
+.disabled-input + .setting-item-description,
+.disabled-dropdown + .setting-item-description,
+.disabled-slider + .setting-item-description,
+.disabled-textarea + .setting-item-description {
+    color: var(--text-muted);
+}
+
+/* 自动折叠设置样式 */
+.toolbox .otp-setting-container .toggle-container {
+	margin-top: 0;
+	display: flex;
+	align-items: center;
+}
+
+.toolbox .otp-setting-container .toggle-container .toggle {
+	position: relative;
+	width: 2.5em;
+	height: 1.25em;
+	border-radius: 1.25em;
+	background-color: var(--background-modifier-border);
+	transition: background-color 0.3s ease;
+	cursor: pointer;
+}
+
+.toolbox .otp-setting-container .toggle-container .toggle.is-enabled {
+	background-color: var(--interactive-accent);
+}
+
+.toolbox .otp-setting-container .toggle-container .toggle::after {
+	content: '';
+	position: absolute;
+	top: 0.125em;
+	left: 0.125em;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	background-color: var(--background-primary);
+	transition: transform 0.3s ease;
+}
+
+.toolbox .otp-setting-container .toggle-container .toggle.is-enabled::after {
+	transform: translateX(1.25em);
+}
+
+/* 行内代码复制工具样式 */
+.inline-code-copy-tooltip {
+    position: fixed;
+    background-color: var(--background-primary);
+    color: var(--text-normal);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
