@@ -1,0 +1,17 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [master]  # 主分支更新时触发
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install && npm run docs:build  # 安装依赖并构建文档
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/.vitepress/dist
+          keep_files: false  # 自动清理 gh-pages 分支旧文件
+          force_orphan: true  # 确保每次都是全新提交
+          full_commit_message: "Deploy via GitHub Actions"  # 明确提交信息

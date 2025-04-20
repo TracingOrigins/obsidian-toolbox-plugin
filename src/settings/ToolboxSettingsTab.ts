@@ -77,10 +77,10 @@ export class ToolboxSettingTab extends PluginSettingTab {
 		const headerContent = header.createDiv({cls: 'otp-header-content'});
 
 		const welcomeText = headerContent.createEl('p');
-		welcomeText.innerHTML = '欢迎使用工具箱插件，查看<a href="https://github.com/TracingOrigins/obsidian-toolbox-plugin/blob/master/README.md" target="_blank">官方文档</a>了解更多功能！';
+		welcomeText.innerHTML = '欢迎使用工具箱插件，查看<a href="https://tracingorigins.github.io/obsidian-toolbox-plugin/" target="_blank">官方文档</a>了解更多功能！';
 
 		const versionContainer = headerContent.createDiv({cls: 'otp-version-container'});
-		const version = versionContainer.createEl('p', {text: '版本号: 1.0.0', cls: 'otp-version-text'});
+		const version = versionContainer.createEl('p', {text: '版本号: 1.0.1', cls: 'otp-version-text'});
 	}
 
 	/**
