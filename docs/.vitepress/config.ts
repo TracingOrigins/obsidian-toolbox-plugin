@@ -8,8 +8,7 @@ export default defineConfig({
   description: "功能、用法、配置",
   lang: 'en-US',
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
-    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/images/favicon.png' }],
     ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
     ['meta', { name: 'theme-color', content: '#ffffff' }]
   ],
@@ -19,6 +18,9 @@ export default defineConfig({
       lang: 'en-US',
       link: '/en/',
       themeConfig: {
+        outline: {
+          label: 'On this page'
+        },
         nav: [
           { text: 'Home', link: '/en/' },
           { text: 'Toolbox', link: '/en/toolbox/' },
@@ -53,7 +55,6 @@ export default defineConfig({
           '/en/toolbox/': [
           {
             text: 'Plugin Overview',
-            collapsible: true,
             collapsed: false,
             items: [
               { text: 'Introduction', link: '/en/toolbox/introduction' },
@@ -62,7 +63,6 @@ export default defineConfig({
           },
           {
             text: 'Tool List',
-            collapsible: true,
             collapsed: false,
             items: [
               { text: 'Auto Timestamps', link: '/en/toolbox/auto-timestamps' },
@@ -74,7 +74,6 @@ export default defineConfig({
           },
           {
             text: 'Future Plans',
-            collapsible: true,
             collapsed: false,
             items: [
               { text: 'Development Roadmap', link: '/en/toolbox/future-plans' }
@@ -109,6 +108,9 @@ export default defineConfig({
       lang: 'zh-CN',
       link: '/zh/',
       themeConfig: {
+        outline: {
+          label: '本页目录'
+        },
         nav: [
           { text: '首页', link: '/zh/' },
           { text: '工具箱', link: '/zh/toolbox/' },
@@ -143,7 +145,6 @@ export default defineConfig({
           '/zh/toolbox/': [
           {
             text: '插件概述',
-            collapsible: true,
             collapsed: false,
             items: [
               { text: '简介', link: '/zh/toolbox/introduction' },
@@ -152,7 +153,6 @@ export default defineConfig({
           },
           {
             text: '工具列表',
-            collapsible: true,
             collapsed: false,
             items: [
               { text: '自动时间戳', link: '/zh/toolbox/auto-timestamps' },
@@ -164,7 +164,6 @@ export default defineConfig({
           },
           {
             text: '未来计划',
-            collapsible: true,
             collapsed: false,
             items: [
               { text: '未来计划', link: '/zh/toolbox/future-plans' }
@@ -197,7 +196,7 @@ export default defineConfig({
     }
   },
   themeConfig: {
-    logo: '/logo.png',
+    logo: '/images/favicon.png',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/TracingOrigins' }
     ],

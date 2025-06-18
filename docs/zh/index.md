@@ -1,9 +1,14 @@
 ---
 layout: home
+home: true
+lang: zh
 hero:
   name: 工具箱插件说明文档
   text: 功能、用法、配置
   tagline: 一个实用的 Obsidian 工具箱插件。
+  image:
+    src: /images/logo.png
+    alt: Vitest
   actions:
     - theme: brand
       text: 开始阅读

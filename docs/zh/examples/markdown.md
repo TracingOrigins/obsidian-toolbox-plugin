@@ -34,7 +34,7 @@
 ### 链接和图片
 
 [外部链接](https://vitepress.dev)
-![图片描述](/logo.png)
+![图片描述](/images/logo.png)
 
 ### 代码块
 

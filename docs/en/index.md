@@ -1,9 +1,14 @@
 ---
 layout: home
+home: true
+lang: en
 hero:
   name: Toolbox Plugin Documentation
   text: Features, Usage, Configuration
   tagline: A practical Obsidian toolbox plugin.
+  image:
+    src: /images/logo.png
+    alt: Vitest
   actions:
     - theme: brand
       text: Start Reading

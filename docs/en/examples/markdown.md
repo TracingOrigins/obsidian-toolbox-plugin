@@ -34,7 +34,7 @@ Ordered list:
 ### Links and Images
 
 [External link](https://vitepress.dev)
-![Image alt text](/logo.png)
+![Image alt text](/images/logo.png)
 
 ### Code Blocks
 

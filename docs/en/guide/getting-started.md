@@ -21,24 +21,32 @@ Before you begin, make sure you have the following installed:
 
 ## Installation
 
-1. Clone the repository:
+Suppose you want to install the vitepress project in vitepress-docs
+
+1. Preparation:
    ```bash
-   git clone https://github.com/your-repo/docs.git
-   cd docs
+   mkdir vitepress-docs
+   cd vitepress-docs
    ```
 
-2. Install dependencies:
+2. Start the installation:
+   ```bash
+   npm add -D vitepress
+   ```
+
+3. Start initialization:
+   ```bash
+   npx vitepress init
+   ```
+
+4. Installation dependencies:
    ```bash
    npm install
-   # or if you prefer yarn
-   yarn install
    ```
 
-3. Start the development server:
+5. Start the development server:
    ```bash
    npm run docs:dev
-   # or with yarn
-   yarn docs:dev
    ```
 
    The development server will start at `http://localhost:5173` by default.
@@ -51,7 +59,7 @@ docs/
 │   ├── config.ts        # Main configuration file
 │   └── theme/           # Custom theme files
 ├── public/              # Static assets
-│   ├── favicon.svg
+│   ├── favicon.png
 │   └── logo.png
 ├── en/                  # English documentation
 │   ├── guide/          # Guide section

@@ -21,24 +21,32 @@
 
 ## 安装
 
-1. 克隆仓库：
+假设要在vitepress-docs中安装vitepress项目
+
+1. 准备工作
    ```bash
-   git clone https://github.com/your-repo/docs.git
-   cd docs
+   mkdir vitepress-docs
+   cd vitepress-docs
    ```
 
-2. 安装依赖：
+2. 开始安装：
+   ```bash
+   npm add -D vitepress
+   ```
+
+3. 开始初始化：
+   ```bash
+   npx vitepress init
+   ```
+
+4. 安装依赖：
    ```bash
    npm install
-   # 或者使用 yarn
-   yarn install
    ```
 
-3. 启动开发服务器：
+5. 启动开发服务器：
    ```bash
    npm run docs:dev
-   # 或者使用 yarn
-   yarn docs:dev
    ```
 
    开发服务器默认会在 `http://localhost:5173` 启动。
@@ -51,7 +59,7 @@ docs/
 │   ├── config.ts        # 主配置文件
 │   └── theme/           # 自定义主题文件
 ├── public/              # 静态资源
-│   ├── favicon.svg
+│   ├── favicon.png
 │   └── logo.png
 ├── en/                  # 英文文档
 │   ├── guide/          # 指南部分
