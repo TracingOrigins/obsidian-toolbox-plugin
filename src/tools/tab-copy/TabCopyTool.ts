@@ -31,6 +31,10 @@ export class TabCopyTool extends BaseTool<TabCopyConfig> {
 	 */
 	name = '标签页复制';
 	/**
+	 * 工具排序名称
+	 */
+	sortName = 'biaoqianyefuzhi';
+	/**
 	 * 工具描述
 	 */
 	description = '复制标签页内容的链接';

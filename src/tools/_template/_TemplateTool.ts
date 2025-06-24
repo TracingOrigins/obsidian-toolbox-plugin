@@ -21,6 +21,10 @@ export class _TemplateTool extends BaseTool<TemplateConfig> {
 	 */
 	name = '工具模板';
 	/**
+	 * 工具排序名称
+	 */
+	sortName = 'gongjvmuban';
+	/**
 	 * 工具描述
 	 */
 	description = '提供模板功能和多种控件示例';

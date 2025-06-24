@@ -19,6 +19,10 @@ export class PathCopyTool extends BaseTool<PathCopyConfig> {
      */
     name = '路径复制';
     /**
+     * 工具排序名称
+     */
+    sortName = 'lujingfuzhi';
+    /**
      * 工具描述
      */
     description = '在文件列表中复制文件或文件夹的绝对路径和相对路径';

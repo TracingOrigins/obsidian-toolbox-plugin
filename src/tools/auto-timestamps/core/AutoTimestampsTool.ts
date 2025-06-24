@@ -22,6 +22,10 @@ export class AutoTimestampsTool extends BaseTool<AutoTimestampsConfig> {
 	 */
 	name = '自动时间戳';
 	/**
+	 * 工具排序名称
+	 */
+	sortName = 'zidongshijianchuo';
+	/**
 	 * 工具描述
 	 */
 	description = '自动为文档添加创建时间和修改时间的时间戳';

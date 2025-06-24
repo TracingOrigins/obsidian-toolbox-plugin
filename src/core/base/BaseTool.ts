@@ -19,6 +19,11 @@ export abstract class BaseTool<T extends ToolConfig> implements Tool {
 	 * 在用户界面中显示给用户
 	 */
 	abstract name: string;
+    /**
+     * 工具的排序名称
+     * 用于排序，避免中文多音字导致的排序问题
+     */
+	abstract sortName: string;
 	/**
 	 * 工具的简短描述
 	 * 向用户解释工具的功能

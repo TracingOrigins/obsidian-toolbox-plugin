@@ -7,6 +7,7 @@ import { displayInlineCodeCopySettings } from './InlineCodeCopySettings';
 export class InlineCodeCopyTool extends BaseTool<InlineCodeCopyConfig> {
     public id = 'inline-code-copy';
     public name = '行内代码复制';
+    public sortName = 'hangneidaimafuzhi';
     public description = '点击行内代码块时自动复制其内容';
 
     private postProcessor: MarkdownPostProcessor | null = null;

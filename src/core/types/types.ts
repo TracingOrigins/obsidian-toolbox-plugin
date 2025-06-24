@@ -31,6 +31,11 @@ export interface Tool {
      */
     name: string;
     /**
+     * 工具的排序名称
+     * 用于排序，避免中文多音字导致的排序问题
+     */
+    sortName: string;
+    /**
      * 工具的简短描述
      */
     description: string;

@@ -1,4 +1,4 @@
-import {App, PluginSettingTab, Modal} from 'obsidian';
+import {App, PluginSettingTab, Modal, getLanguage} from 'obsidian';
 import {Tool} from '../core/types/types';
 import {ToolManager} from '../core/manager/ToolManager';
 import {IconUtils} from '../utils/iconsUtils';
@@ -293,13 +293,21 @@ export class ToolboxSettingTab extends PluginSettingTab {
 	 * @returns 排序后的工具实例数组
 	 */
 	getSortedTools(sortBy: 'name' | 'enabled'): Tool[] {
+		// 获取语言
+		const language = getLanguage();
+
 		const tools = this.toolManager.getAllTools();
 		if (sortBy === 'name') {
-			return tools.sort((a, b) => a.name.localeCompare(b.name));
+				// 如果语言是中文，使用排序名称sortName排序，否则使用名称name排序
+				if (language === 'zh-CN') {
+					return tools.sort((a, b) => a.sortName.localeCompare(b.sortName));
+				} else {
+					return tools.sort((a, b) => a.sortName.localeCompare(b.sortName));
+				}
 		} else {
 			return tools.sort((a, b) => {
 				if (a.config.enabled === b.config.enabled) {
-					return a.name.localeCompare(b.name);
+					return a.sortName.localeCompare(b.sortName);
 				}
 				return a.config.enabled ? -1 : 1;
 			});

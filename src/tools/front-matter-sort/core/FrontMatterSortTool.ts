@@ -23,6 +23,10 @@ export class FrontMatterSortTool extends BaseTool<FrontMatterSortConfig> {
      */
     name = '文档属性排序';
     /**
+     * 工具排序名称
+     */
+    sortName = 'wendangshuxingpaixu';
+    /**
      * 工具描述
      */
     description = '自定义和自动排序文档的 front-matter 属性';
