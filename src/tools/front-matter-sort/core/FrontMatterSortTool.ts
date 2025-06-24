@@ -201,7 +201,7 @@ export class FrontMatterSortTool extends BaseTool<FrontMatterSortConfig> {
         return {
             enabled: false,
             propertyOrder: 'title\ndate\ntags\ncreated\nmodified',
-            autoSortOnSave: true,
+            autoSortOnSave: false,
             autoSortOnStartup: false,
             keepUnspecifiedProperties: true,
             ignoredFolders: '',

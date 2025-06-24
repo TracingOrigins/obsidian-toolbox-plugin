@@ -15,7 +15,7 @@ const FrontMatterSortSettings: SettingConfig[] = [
         name: 'autoSortOnSave',
         desc: '是否在文件保存时自动排序（不建议启用，除非某天可以禁用obsidian的自动保存）',
         type: 'toggle',
-        value: true
+        value: false
     },
     {
         name: 'autoSortOnStartup',
