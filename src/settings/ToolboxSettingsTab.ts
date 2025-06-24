@@ -241,6 +241,7 @@ export class ToolboxSettingTab extends PluginSettingTab {
 					cls: 'text-input',
 					placeholder: '搜索工具...'
 				});
+				input.value = this.searchQuery;
 				input.addEventListener('input', () => {
 					this.searchQuery = input.value.toLowerCase();
 					this.filterTools();
