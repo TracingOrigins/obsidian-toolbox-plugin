@@ -47,15 +47,6 @@ export class PathCopyTool extends BaseTool<PathCopyConfig> {
      */
     constructor(plugin: ToolboxPlugin) {
         super(plugin);
-        
-        // // 确保配置项存在
-        // this.config = {
-        //     ...this.getDefaultConfig(),
-        //     ...this.config
-        // };
-        
-        // // 立即保存初始配置
-        // this.saveSettings().then(() => {});
     }
 
     /**

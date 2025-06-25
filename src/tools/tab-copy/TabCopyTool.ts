@@ -50,20 +50,7 @@ export class TabCopyTool extends BaseTool<TabCopyConfig> {
 	 * @param plugin 插件实例引用
 	 */
 	constructor(plugin: ToolboxPlugin) {
-		super(plugin);
-		
-		// // 初始化日志
-
-		// // 确保配置项存在
-		// this.config = {
-		// 	...this.getDefaultConfig(),
-		// 	...this.config
-		// };
-		
-		// // 立即保存初始配置，确保它在data.json中
-		// this.saveSettings().then(() => {
-		// });
-	}
+		super(plugin);}
 
 	/**
 	 * 注册工具命令
